@@ -11,7 +11,7 @@
   "scripts": {
     "watch:sass": "sass --embed-sources --watch src/assets/sass:dist/assets/css",
     "build:sass": "npm-run-all cssbuild:sass cssbuild:postcss",
-    "cssbuild:sass": "sass --no-source-map src/assets/sass:src/includes/min/",
+    "cssbuild:sass": "sass --no-source-map src/assets/sass:dist/assets/css/",
     "cssbuild:postcss": "postcss --no-map src/includes/min/main.css -u autoprefixer cssnano -r",
     "watch:js": "watchify --debug -t [ babelify --presets [ @babel/preset-env ] ] src/assets/js/main.js -o dist/assets/js/bundle.js",
     "build:js": "browserify src/assets/js/main.js -t [ babelify --presets [ @babel/preset-env ] ] | uglifyjs -cm > dist/assets/js/bundle.js",
