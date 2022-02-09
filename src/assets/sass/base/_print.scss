@@ -1,0 +1,25 @@
+/*! purgecss start ignore */
+
+@media print {
+  @page {
+    size: Letter portrait;
+    margin: 2cm 1cm 2cm 1cm;
+    font-size: 10px;
+  }
+
+  @page :first {
+    margin-top: .8cm;
+ }
+
+  .print-hidden,
+  tr.is-hidden {
+    display: none !important;
+  }
+
+  tr,
+  td {
+    page-break-inside: avoid;
+  }
+}
+
+/*! purgecss end ignore */

@@ -1,0 +1,122 @@
+/**
+ * Fonts
+ *
+ * Should always default to a system font stack
+ * https://css-tricks.com/snippets/css/system-font-stack/
+ */
+
+.sans {
+  font-family: "TTNorms", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+
+.serif {
+  font-family: "Grifo", 'Iowan Old Style', 'Apple Garamond', Baskerville, 'Times New Roman', 'Droid Serif', Times, 'Source Serif Pro', serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+/**
+ * @license
+ * MyFonts Webfont Build ID 3608051, 2018-07-10T10:44:43-0400
+ *
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are
+ * explicitly restricted from using the Licensed Webfonts(s).
+ *
+ * You may obtain a valid license at the URLs below.
+ *
+ * Webfont: TTNorms-BoldItalic by TypeType
+ * URL: https://www.myfonts.com/fonts/type-type/tt-norms/bold-ital/
+ *
+ * Webfont: TTNorms-Bold by TypeType
+ * URL: https://www.myfonts.com/fonts/type-type/tt-norms/bold/
+ *
+ * Webfont: TTNorms-Italic by TypeType
+ * URL: https://www.myfonts.com/fonts/type-type/tt-norms/ital/
+ *
+ * Webfont: TTNorms-MediumItalic by TypeType
+ * URL: https://www.myfonts.com/fonts/type-type/tt-norms/med-ital/
+ *
+ * Webfont: TTNorms-Medium by TypeType
+ * URL: https://www.myfonts.com/fonts/type-type/tt-norms/medium/
+ *
+ * Webfont: TTNorms-Regular by TypeType
+ * URL: https://www.myfonts.com/fonts/type-type/tt-norms/regular/
+ *
+ *
+ * License: https://www.myfonts.com/viewlicense?type=web&buildid=3608051
+ * Licensed pageviews: 40,000
+ * Webfonts copyright: Copyright (c) 2017 by TypeType. Designers Ivan Gladkikh, Pavel Emelyanov. Technical designers Olexa Volochay, Nadyr Rakhimov, Dmitriy Greshnev. All rights reserved.
+ *
+ * © 2018 MyFonts Inc
+*/
+
+// @import url("//hello.myfonts.net/count/370df3");
+
+@font-face {
+  font-family: "TTNorms";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../fonts/370DF3_5_0.eot");
+  src: url("../fonts/370DF3_5_0.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/370DF3_5_0.woff2") format("woff2"), url("../fonts/370DF3_5_0.woff") format("woff"),
+    url("../fonts/370DF3_5_0.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "TTNorms";
+  font-weight: 400;
+  font-style: italic;
+  src: url("../fonts/370DF3_2_0.eot");
+  src: url("../fonts/370DF3_2_0.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/370DF3_2_0.woff2") format("woff2"), url("../fonts/370DF3_2_0.woff") format("woff"),
+    url("../fonts/370DF3_2_0.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "TTNorms";
+  font-weight: 500;
+  font-style: normal;
+  src: url("../fonts/370DF3_4_0.eot");
+  src: url("../fonts/370DF3_4_0.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/370DF3_4_0.woff2") format("woff2"), url("../fonts/370DF3_4_0.woff") format("woff"),
+    url("../fonts/370DF3_4_0.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "TTNorms";
+  font-weight: 500;
+  font-style: italic;
+  src: url("../fonts/370DF3_3_0.eot");
+  src: url("../fonts/370DF3_3_0.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/370DF3_3_0.woff2") format("woff2"), url("../fonts/370DF3_3_0.woff") format("woff"),
+    url("../fonts/370DF3_3_0.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "TTNorms";
+  font-weight: 600;
+  font-style: italic;
+  src: url("../fonts/370DF3_0_0.eot");
+  src: url("../fonts/370DF3_0_0.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/370DF3_0_0.woff2") format("woff2"), url("../fonts/370DF3_0_0.woff") format("woff"),
+    url("../fonts/370DF3_0_0.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "TTNorms";
+  font-weight: 600;
+  font-style: normal;
+  src: url("../fonts/370DF3_1_0.eot");
+  src: url("../fonts/370DF3_1_0.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/370DF3_1_0.woff2") format("woff2"), url("../fonts/370DF3_1_0.woff") format("woff"),
+    url("../fonts/370DF3_1_0.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Grifo";
+  font-weight: 700;
+  font-style: normal;
+  src: url("../fonts/grifo-l-black.eot");
+  src: url("../fonts/grifo-l-black.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/grifo-l-black.woff2") format("woff2"), url("../fonts/grifo-l-black.woff") format("woff");
+}

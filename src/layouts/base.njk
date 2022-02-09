@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include "styles.njk" %}
+    <title>Ideas On Purpose</title>
+  </head>
+
+  <body>
+    {{ content | safe }}
+
+    {% include "scripts.njk" %}
+  </body>
+</html>

@@ -1,0 +1,42 @@
+/**
+ * Base
+ */
+
+body {
+  @extend .sans;
+  color: $charcoal;
+
+  font-size: 16px;
+  line-height: 1.2;
+  text-align: left;
+
+  counter-reset: rows;
+
+  // Prevent horizontal scrolling
+  width: 100%;
+  overflow-x: hidden;
+
+  margin-top: 100px;
+}
+
+select {
+  border: 0;
+  outline: 0;
+  font: inherit;
+  padding: 0;
+}
+
+input[type="text"] {
+  width: 100%;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+textarea {
+  outline: 0;
+  font: inherit;
+  font-size: 16px;
+  width: 100%;
+  display: block;
+  padding: 0;
+}

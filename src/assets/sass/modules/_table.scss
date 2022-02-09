@@ -1,0 +1,103 @@
+table {
+  width: 100%;
+  margin: 24px auto 0;
+  text-align: left;
+  border-collapse:collapse;
+}
+
+th,
+td {
+  padding: 4px 16px;
+  vertical-align: middle;
+
+  // for counter
+  &:first-child {
+    padding-left: 32px;
+  }
+
+  &:last-child {
+    padding-right: 0;
+  }
+}
+
+th {
+  background: $lighter-gray;
+  border-bottom: 2px solid $clay;
+  white-space: nowrap;
+  text-align: left;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+td {
+  position: relative;
+
+  &::after{
+    content: '';
+    width: 100%;
+    height: 1px;
+    background: #f5f5f5;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.month_row {
+  background: $light-clay;
+  font-weight: 500;
+  color: $black;
+}
+
+.table__actions {
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+
+  label {
+    cursor: pointer;
+    margin: 0 2px;
+    opacity: 0.4;
+    line-height: 0;
+
+    &.is-active {
+      opacity: 1;
+    }
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/**
+ * Counters
+ */
+tbody tr:not(.month_row) td {
+  position: relative;
+
+  &:first-child::before {
+    content: counter(rows) ".";
+    counter-increment: rows;
+
+    font-size: 10px;
+    font-weight: normal;
+    color: $darker-clay;
+
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    transform: translateY(-50%);
+  }
+}
+
+/**
+ * Rows Visibility
+ */
+
+.is-view-all tbody tr.is-hidden {
+  display: table-row;
+  box-shadow: -10px 0 0 $dark-gray;
+}

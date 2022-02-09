@@ -1,0 +1,50 @@
+/**
+ * Colors
+ */
+
+$white: #fff;
+$black: #000;
+
+$light-mint: #d9f9f1;
+$mint: #50e3c2;
+$dark-mint: #0ead8e;
+
+$light-clay: #f7f7f2;
+$clay: #f0efe5;
+$dark-clay: #d7d4b2;
+$darker-clay: #b4b195;
+$charcoal: #0d1312;
+
+$lighter-gray: #e9efee;
+$light-gray: #cbd1d0;
+$dark-gray: #5e6463;
+$gray: #bbb;
+
+$blue: #2973b7;
+
+$colorPalette: (
+  "white": $white,
+  "black": $black,
+  "light-mint": $light-mint,
+  "mint": $mint,
+  "dark-mint": $dark-mint,
+  "light-clay": $light-clay,
+  "dark-clay": $dark-clay,
+  "darker-clay": $darker-clay,
+  "charcoal": $charcoal,
+  "gray": $gray,
+  "lighter-gray": $lighter-gray,
+  "light-gray": $light-gray,
+  "dark-gray": $dark-gray,
+  "blue": $blue,
+);
+
+@each $name, $color in $colorPalette {
+  .has-color-#{$name} {
+    color: $color;
+  }
+
+  .has-bg-#{$name} {
+    background-color: $color;
+  }
+}
