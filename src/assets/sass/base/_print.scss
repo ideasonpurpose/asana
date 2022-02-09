@@ -8,8 +8,13 @@
   }
 
   @page :first {
-    margin-top: .8cm;
- }
+    margin-top: 0.8cm;
+  }
+
+  body {
+    font-size: 10px;
+    padding: 0;
+  }
 
   .print-hidden,
   tr.is-hidden {

@@ -39,5 +39,7 @@ module.exports = async function (content, outputPath) {
     }
   });
 
+  console.log('purging');
+
   return content.replace('<!-- INLINE CSS-->', '<style>' + purgeCSSResults[0].css + '</style>');
 }

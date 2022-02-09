@@ -18,8 +18,8 @@ module.exports = {
   // pass: 'EXTRANET_PASSWORD', 
 
   // Internal Stage Settings
-  BASEURL: isProduction ? "" : "",
-  PRODURL: isProduction ? "https://www.dei.dominionenergy.com" : "",
+  BASEURL: isProduction ? "/asana/dist" : "",
+  PRODURL: isProduction ? "https://ideasonpurpose.github.io" : "",
 
   // Client Review Settings
   // BASEURL: isProduction ? "/PROJECT_NAME/clientreview" : "",

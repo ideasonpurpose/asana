@@ -5,52 +5,49 @@ layout: base.njk
 {% raw %}
   <main id="app" class="wrapper">
     <div class="actions print-hidden">
-      <div class="actions__doc">
-        <div>
-          <label>
-            <input type="checkbox" v-model="editMode"/>
-            <span>Edit</span>
-          </label>
+      <div>
+        <label>
+          <input type="checkbox" v-model="editMode"/>
+          <span>Edit</span>
+        </label>
 
-          <label>
-            <input type="checkbox" v-model="viewAll"/>
-            <span>View Hidden</span>
-          </label>
+        <label>
+          <input type="checkbox" v-model="viewAll"/>
+          <span>View Hidden</span>
+        </label>
 
-          <label>
-            <input type="checkbox" v-model="tableHeader"/>
-            <span>Toggle Table Header</span>
-          </label>
-        </div>
-
-        <div>
-          <label class="upload">
-            <span>Import</span>
-            <input type="file" @change="loadFile" accept="application/JSON, .csv">
-          </label>
-
-          <button @click="save"><span>Save</span></button>
-          <button @click="print"><span>Print</span></button>
-        </div>
+        <label>
+          <input type="checkbox" v-model="tableHeader"/>
+          <span>Toggle Table Header</span>
+        </label>
       </div>
 
-      <div class="print-hidden actions__table">
-        Columns:
-        <div v-for="(prop, idx) in props" v-if="
-          prop.key != 'task_id' &&
-          prop.key != 'created_at' &&
-          prop.key != 'last_modified' &&
-          prop.key != 'assignee_email' &&
-          prop.key != 'tags' &&
-          prop.key != 'projects' &&
-          prop.key != 'project_manager' &&
-          prop.key != 'sow'
-        ">
-          <label>
-            <input type="checkbox" :value="prop.key" v-model="showColumns"/>
-            <span>{{prop.name}}</span>
-          </label>
-        </div>
+      <div>
+        <label class="upload">
+          <span>Import</span>
+          <input type="file" @change="loadFile" accept="application/JSON, .csv">
+        </label>
+
+        <button @click="save"><span>Save</span></button>
+        <button @click="print"><span>Print</span></button>
+      </div>
+    </div>
+
+    <div class="actions actions--top print-hidden">
+      <div v-for="(prop, idx) in props" v-if="
+        prop.key != 'task_id' &&
+        prop.key != 'created_at' &&
+        prop.key != 'last_modified' &&
+        prop.key != 'assignee_email' &&
+        prop.key != 'tags' &&
+        prop.key != 'projects' &&
+        prop.key != 'project_manager' &&
+        prop.key != 'sow'
+      ">
+        <label>
+          <input type="checkbox" :value="prop.key" v-model="showColumns"/>
+          <span>{{prop.name}}</span>
+        </label>
       </div>
     </div>
 

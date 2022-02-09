@@ -2,82 +2,70 @@
   span {
     padding: 8px 16px;
     background: none;
-    box-shadow: 0 0 0 1px $mint;
     border-radius: 5px;
-    margin: 2px 4px;
+    margin: 2px 4px 2px 0;
     cursor: pointer;
     font-size: 11px;
     font-weight: 600;
     text-transform: uppercase;
+    color: white;
     display: block;
   }
 
   &:hover span {
-    background: #ccc;
+    background: $mint;
+    color: $black;
   }
 
   input {
     display: none;
 
     &:checked ~ span {
-      background: $mint;
+      background: $white;
+      color: $charcoal;
     }
   }
 }
 
 .btn-small {
+  @extend .btn;
   span {
     padding: 2px 4px;
-    background: none;
-    box-shadow: 0 0 0 1px $mint;
-    border-radius: 5px;
-    margin: 2px 4px;
-    cursor: pointer;
+    border-radius: 2px;
     font-size: 11px;
     font-weight: 600;
-    text-transform: uppercase;
-    display: block;
-  }
-
-  &:hover span {
-    background: #ccc;
-  }
-
-  input {
-    display: none;
-
-    &:checked ~ span {
-      background: $mint;
-    }
   }
 }
 
 .actions {
   position: fixed;
-  top: 0;
+  bottom: 0;
   right: 0;
   left: 0;
-  background: white;
-  padding: 16px 32px;
+  z-index: 1;
 
-  &__doc {
+  padding: 8px 32px;
+  color: $white;
+  background: $charcoal;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+
+  > div {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-
-    > div {
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    label, button {
-      @extend .btn;
-    }
   }
 
-  &__table {
-    display: flex;
-    flex-wrap: wrap;
+  label, button {
+    @extend .btn;
+  }
+
+  &--top {
+    bottom: auto;
+    top: 0;
+    justify-content: center;
 
     label, button {
       @extend .btn-small;

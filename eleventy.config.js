@@ -6,16 +6,7 @@ console.log("Production:", Config.ISPROD, '\n');
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./src/assets/fonts/");
-  eleventyConfig.addWatchTarget("./src/assets/pdf/");
-  eleventyConfig.addWatchTarget("./src/assets/video/");
-
-  eleventyConfig.addPassthroughCopy({ "./src/assets/favicon/": "./" });
   eleventyConfig.addPassthroughCopy("./src/assets/fonts/");
-  eleventyConfig.addPassthroughCopy("./src/assets/img/");
-  eleventyConfig.addPassthroughCopy("./src/assets/pdf/");
-  eleventyConfig.addPassthroughCopy("./src/assets/svg/");
-  eleventyConfig.addPassthroughCopy("./src/assets/video/");
-  eleventyConfig.addPassthroughCopy("./src/*.csv");
 
   // Use browsersync hot reload for CSS and JS
   eleventyConfig.setBrowserSyncConfig({
