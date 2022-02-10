@@ -99,7 +99,11 @@ layout: base.njk
               row['rowstyle'] ? row['rowstyle'] : ''
               ]"
             >
-            <td :class="prop" v-for="(content, prop) in row" v-if="showColumns.includes(prop)">
+            <td 
+              :class="prop" 
+              v-for="(content, prop) in row" 
+              v-if="showColumns.includes(prop)"
+            >
               <textarea v-if="editMode" v-model="content"></textarea>
               <span v-else>{{content}}</span>
             </td>

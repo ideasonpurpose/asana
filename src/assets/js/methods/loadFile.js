@@ -8,7 +8,6 @@ function loadFile(e) {
   if (ext == 'csv') {
     Papa.parse(e.target.files[0], {
       complete: function (results) {
-        console.log('entries found:', results.data.length)
         vm.data = results.data;
         vm.generateTable();
       }
@@ -22,7 +21,6 @@ function loadFile(e) {
 
     reader.onload = function (evt) {
       var results = JSON.parse(evt.target.result);
-      console.log(results);
 
       vm.title = results.title;
       vm.meta = results.meta;

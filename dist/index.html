@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="/asana/dist/assets/css/main.css?1644427122335"/>
+    <link rel="stylesheet" href="/asana/dist/assets/css/main.css?1644513529539"/>
 
     <title>Ideas On Purpose</title>
   </head>
@@ -105,7 +105,11 @@
               row['rowstyle'] ? row['rowstyle'] : ''
               ]"
             >
-            <td :class="prop" v-for="(content, prop) in row" v-if="showColumns.includes(prop)">
+            <td 
+              :class="prop" 
+              v-for="(content, prop) in row" 
+              v-if="showColumns.includes(prop)"
+            >
               <textarea v-if="editMode" v-model="content"></textarea>
               <span v-else>{{content}}</span>
             </td>
@@ -143,7 +147,7 @@
 
 
 
-    <script src="/asana/dist/assets/js/bundle.js?1644427122335"></script>
+    <script src="/asana/dist/assets/js/bundle.js?1644513529539"></script>
 
   </body>
 </html>

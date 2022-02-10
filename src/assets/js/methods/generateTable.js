@@ -1,6 +1,10 @@
 function generateTable() {
   var d = vm.data;
 
+  function isValidDate(d) {
+    return d instanceof Date && !isNaN(d);
+  }
+
   /**
    * Generate props object
    * 
@@ -57,6 +61,8 @@ function generateTable() {
     var dueDate = row['due_date'];
     var lastModDate = row['last_modified'];
 
+    console.log(sortDate, dueDate)
+
     if (!sortDate.length) {
       sortDate = dueDate.length ? dueDate : lastModDate;
     }
@@ -77,6 +83,20 @@ function generateTable() {
    * Auto-disable Completed and Non-Client View rows
    */
   for (var i = 0; i < dProcessed.length; i++) {
+    // while we're at it, make sure all project dates show up in U.S. format.
+    // this must come before we start inserting boolean value rows. new Date(true) is a valid date.
+    var row = dProcessed[i];
+    for (var prop in row) {
+      if (isValidDate(new Date(row[prop]))) {
+        if (prop == 'start_date') {
+          row[prop] = new Date(row[prop]).toLocaleDateString('en-us', { month: "short", day: "numeric" });
+        }
+        else {
+          row[prop] = new Date(row[prop]).toLocaleDateString('en-us', { year: "numeric", month: "short", day: "numeric" }); // e.g. 'Feb 10, 2022'
+        }
+      }
+    }
+
     dProcessed[i]['is_hidden'] = false;
 
     if (

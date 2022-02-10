@@ -6875,7 +6875,7 @@ table {
 
 th,
 td {
-  padding: 4px 16px;
+  padding: 4px 8px;
   vertical-align: middle;
 }
 th:first-child,
@@ -6933,6 +6933,27 @@ td::after {
 .table__actions svg {
   width: 16px;
   height: 16px;
+}
+
+.start_date {
+  text-align: right;
+}
+.start_date span:not(:empty):after {
+  content: "—";
+}
+
+.due_date,
+.start_date,
+.owner {
+  white-space: nowrap;
+}
+
+.start_date {
+  padding-right: 0;
+}
+
+.due_date {
+  padding-left: 0;
 }
 
 /**

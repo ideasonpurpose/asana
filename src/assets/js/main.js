@@ -45,20 +45,5 @@ window.vm = new Vue({
     title() {
       this.setTitle();
     }
-  },
-
-  mounted: function () {
-    var t = this;
-
-    /*
-    Papa.parse('./demodata.csv', {
-      download: true,
-      complete: function (results) {
-        Vue.set(vm, 'data', results.data);
-        console.log('entries found:', results.data.length)
-        t.generateTable();
-      }
-    });
-    */
   }
 });

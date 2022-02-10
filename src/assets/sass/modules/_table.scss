@@ -7,7 +7,7 @@ table {
 
 th,
 td {
-  padding: 4px 16px;
+  padding: 4px 8px;
   vertical-align: middle;
 
   // for counter
@@ -70,6 +70,29 @@ td {
     width: 16px;
     height: 16px;
   }
+}
+
+
+.start_date {
+  text-align: right;
+
+  span:not(:empty):after {
+    content: '—';
+  }
+}
+
+.due_date,
+.start_date,
+.owner {
+  white-space: nowrap;
+}
+
+.start_date {
+  padding-right: 0;
+}
+
+.due_date {
+  padding-left: 0;
 }
 
 /**
