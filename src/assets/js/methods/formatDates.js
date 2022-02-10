@@ -12,12 +12,21 @@ function formatDates() {
     var row = vm.data[i];
 
     for (var prop in row) {
-      if (isValidDate(new Date(row[prop])) && row[prop] != true && row[prop] != false) {
+      if (
+        isValidDate(new Date(row[prop])) &&
+        row[prop] != true &&
+        row[prop] != false) {
         if (prop == 'start_date') {
+          // e.g. 'Feb 10'
           row[prop] = new Date(row[prop]).toLocaleDateString('en-us', { month: "short", day: "numeric" });
         }
-        else {
-          row[prop] = new Date(row[prop]).toLocaleDateString('en-us', { year: "numeric", month: "short", day: "numeric" }); // e.g. 'Feb 10, 2022'
+        if (prop == 'completed_at') {
+          // e.g. 'Feb 10, 2022'
+          row[prop] = new Date(row[prop]).toLocaleDateString('en-us', { year: "numeric", month: "short", day: "numeric" });
+        }
+        if (prop == 'due_date') {
+          // e.g. 'Feb 10, 2022'
+          row[prop] = new Date(row[prop]).toLocaleDateString('en-us', { year: "numeric", month: "short", day: "numeric" });
         }
       }
     }
