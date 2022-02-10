@@ -10,6 +10,7 @@ function loadFile(e) {
       complete: function (results) {
         vm.data = results.data;
         vm.generateTable();
+        vm.formatDates();
       }
     });
   }
@@ -29,6 +30,8 @@ function loadFile(e) {
       vm.data = results.data;
       vm.showColumns = results.showColumns;
       vm.tableHeader = results.tableHeader;
+
+      vm.formatDates();
     }
 
     reader.onerror = function (evt) {

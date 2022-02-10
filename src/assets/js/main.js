@@ -15,6 +15,7 @@ var toggleMonth = require('./methods/toggleMonth.js');
 var print = require('./methods/print.js');
 var save = require('./methods/save.js');
 var setTitle = require('./methods/setTitle.js');
+var formatDates = require('./methods/formatDates.js');
 
 window.vm = new Vue({
   el: '#app',
@@ -38,7 +39,8 @@ window.vm = new Vue({
     toggleMonth,
     print,
     save,
-    setTitle
+    setTitle,
+    formatDates
   },
 
   watch: {
