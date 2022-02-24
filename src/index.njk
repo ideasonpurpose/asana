@@ -104,7 +104,7 @@ layout: base.njk
               v-for="(content, prop) in row" 
               v-if="showColumns.includes(prop)"
             >
-              <textarea v-if="editMode" v-model="content"></textarea>
+              <textarea v-if="editMode" v-model="row[prop]"></textarea>
               <span v-else>{{content}}</span>
             </td>
 
