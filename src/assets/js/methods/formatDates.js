@@ -18,15 +18,15 @@ function formatDates() {
         row[prop] != false) {
         if (prop == 'start_date') {
           // e.g. 'Feb 10'
-          row[prop] = new Date(row[prop] + ':00:00:00').toLocaleDateString('en-US', { month: "short", day: "numeric" });
+          row[prop] = new Date(row[prop].replace(/-/g, "/") + ',00:00:00').toLocaleDateString('en-US', { month: "short", day: "numeric" });
         }
         if (prop == 'completed_at') {
           // e.g. 'Feb 10, 2022'
-          row[prop] = new Date(row[prop] + ':00:00:00').toLocaleDateString('en-US', { year: "numeric", month: "short", day: "numeric" });
+          row[prop] = new Date(row[prop].replace(/-/g, "/") + ',00:00:00').toLocaleDateString('en-US', { year: "numeric", month: "short", day: "numeric" });
         }
         if (prop == 'due_date') {
           // e.g. 'Feb 10, 2022'
-          row[prop] = new Date(row[prop] + ':00:00:00').toLocaleDateString('en-US', { year: "numeric", month: "short", day: "numeric" });
+          row[prop] = new Date(row[prop].replace(/-/g, "/") + ',00:00:00').toLocaleDateString('en-US', { year: "numeric", month: "short", day: "numeric" });
         }
       }
     }
