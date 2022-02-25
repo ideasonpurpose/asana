@@ -6,7 +6,7 @@ layout: base.njk
   <main id="app" class="wrapper">
     <div class="actions print-hidden">
       <div>
-        <label>
+        <label @click="sortByDate">
           <input type="checkbox" v-model="editMode"/>
           <span>Edit</span>
         </label>
@@ -105,7 +105,11 @@ layout: base.njk
               v-if="showColumns.includes(prop)"
             >
               <textarea v-if="editMode" v-model="row[prop]"></textarea>
-              <span v-else>{{content}}</span>
+              <span v-else>
+                <template v-if="prop == 'start_date'">{{content | shortDate}}</template>
+                <template v-else-if="prop == 'due_date'">{{content | fullDate}}</template>
+                <template v-else>{{content}}</template>
+              </span>
             </td>
 
             <td class="print-hidden">

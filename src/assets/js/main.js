@@ -15,7 +15,8 @@ var toggleMonth = require('./methods/toggleMonth.js');
 var print = require('./methods/print.js');
 var save = require('./methods/save.js');
 var setTitle = require('./methods/setTitle.js');
-var formatDates = require('./methods/formatDates.js');
+var sortByDate = require('./methods/sortByDate.js');
+var isValidDate = require('./methods/isValidDate.js');
 
 window.vm = new Vue({
   el: '#app',
@@ -25,8 +26,9 @@ window.vm = new Vue({
     meta: new Date().toLocaleString().split(',')[0],
     description: 'NOTE: This is a high-level milestones schedule. As needed, we will make adjustments throughout the process.',
     props: [],
+    orig_data: [],
     data: [],
-    showColumns: ['name', 'start_date', 'owner', 'due_date'],
+    showColumns: ['name', 'start_date', 'due_date', 'owner'],
     viewAll: false,
     editMode: false,
     tableHeader: false,
@@ -40,7 +42,19 @@ window.vm = new Vue({
     print,
     save,
     setTitle,
-    formatDates
+    sortByDate,
+    isValidDate
+  },
+
+  filters: {
+    fullDate: function (val) {
+      // e.g. 'Feb 10, 2022'
+      return vm.isValidDate(val) ? new Date(val.replace(/-/g, "/") + ',00:00:00').toLocaleDateString('en-US', { year: "numeric", month: "short", day: "numeric" }) : '';
+    },
+    // e.g. 'Feb 10'
+    shortDate: function (val) {
+      return vm.isValidDate(val) ? new Date(val.replace(/-/g, "/") + ',00:00:00').toLocaleDateString('en-US', { month: "short", day: "numeric" }) : '';
+    }
   },
 
   watch: {

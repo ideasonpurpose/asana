@@ -46,36 +46,6 @@ function generateTable() {
 
 
   /**
-   * Sort by date
-   * 
-   * Create sortDate
-   * startDate > due date > last modified date
-   */
-  for (var i = 0; i < dProcessed.length; i++) {
-    var row = dProcessed[i];
-    var sortDate = row['start_date'];
-    var dueDate = row['due_date'];
-    var lastModDate = row['last_modified'];
-
-    console.log(sortDate, dueDate)
-
-    if (!sortDate.length) {
-      sortDate = dueDate.length ? dueDate : lastModDate;
-    }
-
-    dProcessed[i]['sort_date'] = sortDate;
-  }
-
-  // we can now sort by sort_date key
-  dProcessed.sort(function (a, b) {
-    var d1 = new Date(a['sort_date']);
-    var d2 = new Date(b['sort_date']);
-
-    return d1 - d2;
-  });
-
-
-  /**
    * Auto-disable Completed and Non-Client View rows
    */
   for (var i = 0; i < dProcessed.length; i++) {
@@ -90,38 +60,13 @@ function generateTable() {
   }
 
 
-  /**
-   * Insert Month rows at appropriate locations
-   * so we can visually group items by month
-   */
-
-  var prevMonth = false;
-
-  for (var i = 0; i < dProcessed.length; i++) {
-    var row = dProcessed[i];
-    var month = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(row['sort_date']));
-
-    row['month_name'] = month;
-    row['rowstyle'] = "";
-
-    if (prevMonth != month) {
-      dProcessed.splice(i, 0, {
-        'type': 'month_row',
-        'is_hidden': false,
-        'month_name': month
-      });
-    }
-
-    prevMonth = month;
-  }
-
   console.log(props);
   console.log(dProcessed);
 
   vm.title = dProcessed[1].projects;
   vm.data = dProcessed;
   vm.props = props;
-  vm.toggleMonth();
+  vm.sortByDate();
   vm.$forceUpdate();
 }
 

@@ -10,7 +10,6 @@ function loadFile(e) {
       complete: function (results) {
         vm.data = results.data;
         vm.generateTable();
-        vm.formatDates();
       }
     });
   }
@@ -23,15 +22,13 @@ function loadFile(e) {
     reader.onload = function (evt) {
       var results = JSON.parse(evt.target.result);
 
+      vm.data = results.data;
       vm.title = results.title;
       vm.meta = results.meta;
       vm.description = results.description;
       vm.props = results.props;
-      vm.data = results.data;
       vm.showColumns = results.showColumns;
       vm.tableHeader = results.tableHeader;
-
-      vm.formatDates();
     }
 
     reader.onerror = function (evt) {
