@@ -18,7 +18,6 @@ function sortByDate() {
 
     var sortDate = start_date.length ? start_date : dueDate.length ? dueDate : lastModDate;
     row['sort_date'] = new Date(sortDate.replace(/-/g, "/") + ',00:00:00');
-    console.log(row['sort_date'])
   }
 
   // we can now sort by sort_date key
@@ -42,7 +41,6 @@ function sortByDate() {
     var month = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(row['sort_date']));
 
     row['month_name'] = month;
-    row['rowstyle'] = "";
 
     if (prevMonth != month) {
       vm.data.splice(i, 0, {

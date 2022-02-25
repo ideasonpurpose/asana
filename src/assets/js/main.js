@@ -26,7 +26,6 @@ window.vm = new Vue({
     meta: new Date().toLocaleString().split(',')[0],
     description: 'NOTE: This is a high-level milestones schedule. As needed, we will make adjustments throughout the process.',
     props: [],
-    orig_data: [],
     data: [],
     showColumns: ['name', 'start_date', 'due_date', 'owner'],
     viewAll: false,
