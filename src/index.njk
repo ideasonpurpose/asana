@@ -28,8 +28,12 @@ layout: base.njk
           <input type="file" @change="loadFile" accept="application/JSON, .csv">
         </label>
 
-        <button @click="save"><span>Save</span></button>
-        <button @click="print"><span>Print</span></button>
+        <button @click="save">
+          <span>Save</span></button>
+        <button @click="save_xlsx">
+          <span>Save as XSLX</span></button>
+        <button @click="print">
+          <span>Print</span></button>
       </div>
     </div>
 
@@ -114,17 +118,30 @@ layout: base.njk
 
             <td class="print-hidden">
               <div class="table__actions">
-                <label :class="row['is_hidden'] ? '' : 'is-active'">
+                <label @click="clonerow(rowIndex)" class="is-active" title="Duplicate">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="black">
+                    <path d="M9 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414A2 2 0 0016.414 5L14 2.586A2 2 0 0012.586 2H9z" fill="black"/>
+                    <path d="M3 8a2 2 0 012-2v10h8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/>
+                  </svg>
+                </label>
+
+                <label @click="deleterow(rowIndex)" class="is-active" title="Delete">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="black">
+                    <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                  </svg>
+                </label>
+
+                <label :class="row['is_hidden'] ? '' : 'is-active'" title="Hide/Show">
                   <input @change="toggleMonth()" type="checkbox" :value="rowIndex" v-model="row['is_hidden']" style="display: none;"/>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 3c5.392 0 9.878 3.88 10.819 9-.94 5.12-5.427 9-10.819 9-5.392 0-9.878-3.88-10.819-9C2.121 6.88 6.608 3 12 3zm0 16a9.005 9.005 0 0 0 8.777-7 9.005 9.005 0 0 0-17.554 0A9.005 9.005 0 0 0 12 19zm0-2.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm0-2a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg>
                 </label>
 
-                <label :class="row['is_bold'] ? 'is-active' : ''">
+                <label :class="row['is_bold'] ? 'is-active' : ''" title="Bold">
                   <input type="checkbox" :value="rowIndex" v-model="row['is_bold']" style="display: none;"/>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M8 11h4.5a2.5 2.5 0 1 0 0-5H8v5zm10 4.5a4.5 4.5 0 0 1-4.5 4.5H6V4h6.5a4.5 4.5 0 0 1 3.256 7.606A4.498 4.498 0 0 1 18 15.5zM8 13v5h5.5a2.5 2.5 0 1 0 0-5H8z"/></svg>
                 </label>
 
-                <label :class="row['is_italic'] ? 'is-active' : ''">
+                <label :class="row['is_italic'] ? 'is-active' : ''" title="Italic">
                   <input type="checkbox" :value="rowIndex" v-model="row['is_italic']" style="display: none;"/>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M15 20H7v-2h2.927l2.116-12H9V4h8v2h-2.927l-2.116 12H15z"/></svg>
                 </label>

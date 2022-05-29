@@ -6,7 +6,7 @@
  */
 
 function sortByDate() {
-  vm.data = vm.data.filter(function (val, i, arr) { 
+  vm.data = vm.data.filter(function (val, i, arr) {
     return val.type != 'month_row';
   });
 

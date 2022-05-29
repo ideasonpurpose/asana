@@ -1,5 +1,5 @@
 /**
- * Check a valid date
+ * TODO Check a valid date
  */
 
 function isValidDate(val) {

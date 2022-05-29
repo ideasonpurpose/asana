@@ -18,7 +18,7 @@ function toggleMonth() {
     if (row['type'] == 'month_row') {
       monthrow = row;
       monthrow.is_hidden = true;
-    } 
+    }
     // If there's at least one visible task below the current month,
     // then show the month row
     else if (!row.is_hidden) {

@@ -16,7 +16,7 @@ function save() {
 
   var link = document.createElement('a');
 
-  link.download = 'Project_Data';
+  link.download = vm.title;
   link.href = 'data:application/json,' + encodeURIComponent(JSON.stringify(appdata));
   link.click();
 };

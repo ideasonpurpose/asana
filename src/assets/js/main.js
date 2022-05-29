@@ -14,9 +14,12 @@ var generateTable = require('./methods/generateTable.js');
 var toggleMonth = require('./methods/toggleMonth.js');
 var print = require('./methods/print.js');
 var save = require('./methods/save.js');
+var save_xlsx = require('./methods/save_xlsx.js');
 var setTitle = require('./methods/setTitle.js');
 var sortByDate = require('./methods/sortByDate.js');
 var isValidDate = require('./methods/isValidDate.js');
+var clonerow = require('./methods/clonerow.js');
+var deleterow = require('./methods/deleterow.js');
 
 window.vm = new Vue({
   el: '#app',
@@ -40,19 +43,22 @@ window.vm = new Vue({
     toggleMonth,
     print,
     save,
+    save_xlsx,
     setTitle,
     sortByDate,
-    isValidDate
+    isValidDate,
+    clonerow,
+    deleterow
   },
 
   filters: {
     fullDate: function (val) {
       // e.g. 'Feb 10, 2022'
-      return vm.isValidDate(val) ? new Date(val.replace(/-/g, "/") + ',00:00:00').toLocaleDateString('en-US', { year: "numeric", month: "short", day: "numeric" }) : '';
+      return vm.isValidDate(val) ? new Date(val.replace(/-/g, "/") + ',00:00:00').toLocaleDateString('en-US', { year: "numeric", month: "short", day: "numeric", weekday: 'short' }) : '';
     },
     // e.g. 'Feb 10'
     shortDate: function (val) {
-      return vm.isValidDate(val) ? new Date(val.replace(/-/g, "/") + ',00:00:00').toLocaleDateString('en-US', { month: "short", day: "numeric" }) : '';
+      return vm.isValidDate(val) ? new Date(val.replace(/-/g, "/") + ',00:00:00').toLocaleDateString('en-US', { month: "short", day: "numeric", weekday: 'short' }) : '';
     }
   },
 

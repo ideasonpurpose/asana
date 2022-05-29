@@ -60,9 +60,6 @@ function generateTable() {
   }
 
 
-  console.log(props);
-  console.log(dProcessed);
-
   vm.title = dProcessed[1].projects;
   vm.data = dProcessed;
   vm.props = props;
