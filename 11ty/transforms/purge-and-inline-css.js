@@ -6,6 +6,7 @@
  */
 
 const { PurgeCSS } = require('purgecss');
+const Config = require("../config.js");
 
 module.exports = async function (content, outputPath) {
   if (process.env.ELEVENTY_ENV !== 'production' || !outputPath.endsWith('.html')) {
@@ -24,8 +25,10 @@ module.exports = async function (content, outputPath) {
         /^js/,
         /^is/,
         /^has/,
-        /a11y/,
+        /^move/,
+        /inview/,
         /iop/,
+        /a11y/,
         /slick/,
         /class/,
         /target/,
@@ -34,12 +37,33 @@ module.exports = async function (content, outputPath) {
         /stroke/,
         /fill/,
         /rowspan/,
-        /colspan/
+        /colspan/,
+        /aria/
       ]
     }
   });
 
-  console.log('purging');
+  /**
+   * purgeCSS did a great job shrinking the size of CSS
+   * and now we move on to inlining all the CSS in the head section of each page.
+   * 
+   * In CSS, all external assets are being pulled from /assets/ as a relative path.
+   * 
+   * The replaceAll method below makes sure all assets loaded in the CSS
+   * are being pulled in from the true base url of the website.
+   * 
+   * E.G. if fonts live at http://client.iopclient.com/annual-report/assets/fonts/
+   * the CSS paths will transform to /annual-report/assets/fonts/
+   * 
+   * This ensures paths are always correct in dev mode as well as production.
+   * It works with any level of nesting, as long as the BASEURL var is set correctly.
+   */
 
-  return content.replace('<!-- INLINE CSS-->', '<style>' + purgeCSSResults[0].css + '</style>');
+  let results = purgeCSSResults[0].css;
+
+  if(Config.BASEURL != '/' && Config.BASEURL != '') {
+    results = results.replaceAll('/assets/', Config.BASEURL + '/assets/');
+  }
+
+  return content.replace('<!-- INLINE CSS-->', '<style>' + results + '</style>');
 }

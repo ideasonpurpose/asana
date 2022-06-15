@@ -86,7 +86,7 @@ layout: base.njk
       <tbody>
         <template v-for="row, rowIndex in data">
           <!-- month row -->
-          <tr 
+          <tr
             v-if="row['type'] == 'month_row'"
             :class="[(row['is_hidden'] ? 'is-hidden' : ''), 'month_row']">
             <td :colspan="showColumns.length">{{ row.month_name }}</td>
@@ -94,7 +94,7 @@ layout: base.njk
           </tr>
 
           <!-- data row -->
-          <tr 
+          <tr  :data-index="rowIndex"
             v-else 
             :class="[
               row['is_hidden'] ? 'is-hidden' : '',
