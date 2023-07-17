@@ -1,0 +1,50 @@
+.p {
+  @extend .open-sans;
+
+  &__logo {
+    display: inline-block;
+    margin-bottom: 64px;
+  }
+
+  .header {
+    margin-bottom: 48px;
+    margin-top: -40px;
+
+    &__wrapper {
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .meta {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .description {
+      font-size: 14px;
+      color: $gray;
+    }
+  }
+
+  &__search {
+    input {
+      @extend .open-sans;
+      border-radius: 50px;
+      border: 0;
+      background: $lighter-gray;
+      width: 250px;
+      font-size: 14px;
+      line-height: 14px;
+      padding: 8px 12px;
+
+      &:focus {
+        outline: 0;
+        background: $light-mint;
+      }
+    }
+  }
+}

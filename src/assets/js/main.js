@@ -5,11 +5,10 @@
  */
 
 var Vue = require('./lib/vue.min.js');
-var Papa = require('papaparse');
+var Fusse = require('./lib/fusse.js');
 
 // Vue methods
 var loadFile = require('./methods/loadFile.js');
-var download = require('./methods/download.js');
 var generateTable = require('./methods/generateTable.js');
 var toggleMonth = require('./methods/toggleMonth.js');
 var print = require('./methods/print.js');
@@ -38,7 +37,6 @@ window.vm = new Vue({
 
   methods: {
     loadFile,
-    download,
     generateTable,
     toggleMonth,
     print,
@@ -67,4 +65,25 @@ window.vm = new Vue({
       this.setTitle();
     }
   }
+});
+
+
+/**
+ * Presentation table
+ */
+window.vm2 = new Vue({
+  el: '#presentation',
+
+  data: window.pdata,
+
+  filters: {
+    fullDate: function (val) {
+      // e.g. 'Feb 10, 2022'
+      return vm.isValidDate(val) ? new Date(val.replace(/-/g, "/") + ',00:00:00').toLocaleDateString('en-US', { year: "numeric", month: "short", day: "numeric", weekday: 'short' }) : '';
+    },
+    // e.g. 'Feb 10'
+    shortDate: function (val) {
+      return vm.isValidDate(val) ? new Date(val.replace(/-/g, "/") + ',00:00:00').toLocaleDateString('en-US', { month: "short", day: "numeric", weekday: 'short' }) : '';
+    }
+  },
 });

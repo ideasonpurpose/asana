@@ -1,0 +1,59 @@
+.ptable {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  font-size: 14px;
+  font-weight: 500;
+
+  th {
+    font-size: 16px;
+    font-weight: 700;
+    color: $gray;
+    border-bottom: 1px solid $lighter-gray;
+    padding: 12px 8px 24px;
+
+    &:first-child {
+      padding-left: 16px;
+    }
+
+    &:last-child {
+      padding-right: 16px;
+    }
+  }
+
+  td {
+    border-bottom: 1px solid $lighter-gray;
+    padding: 12px 8px;
+
+    &:first-child {
+      padding-left: 16px;
+    }
+
+    &:last-child {
+      padding-right: 16px;
+    }
+  }
+
+  tbody tr:not(.month_row) {
+    transition: all 250ms;
+
+    &:hover {
+      background: rgba($light-mint, .4);
+    }
+
+    &.is-bold {
+      font-weight: 700;
+    }
+  }
+
+  .month_row {
+    td {
+      padding-top: 32px;
+      padding-bottom: 12px;
+      padding-left: 0;
+      font-size: 16px;
+      font-weight: 700;
+      border-color: $gray;
+    }
+  }
+}
