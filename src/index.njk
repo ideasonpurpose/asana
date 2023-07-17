@@ -108,12 +108,42 @@ layout: base.njk
               v-for="(content, prop) in row" 
               v-if="showColumns.includes(prop)"
             >
-              <textarea v-if="editMode" v-model="row[prop]"></textarea>
-              <span v-else>
-                <template v-if="prop == 'start_date'">{{content | shortDate}}</template>
-                <template v-else-if="prop == 'due_date'">{{content | fullDate}}</template>
-                <template v-else>{{content}}</template>
-              </span>
+              <template v-if="prop == 'start_date'">
+                <template v-if="editMode">
+                  <div>
+                    <input v-model="row[prop]" />
+                    <label class="tbd">
+                      <input type="checkbox" v-model="row['is_start_date_tbd']" />
+                      <span>TBD</span>
+                    </label>
+                  </div>
+                </template>
+                <template v-else>
+                  <span v-if="row['is_start_date_tbd']">TBD</span>
+                  <span v-else>{{content | fullDate}}</span>
+                </template>
+              </template>
+
+              <template v-else-if="prop == 'due_date'">
+                <template v-if="editMode">
+                  <div>
+                    <input v-model="row[prop]" />
+                    <label class="tbd">
+                      <input type="checkbox" v-model="row['is_due_date_tbd']" />
+                      <span>TBD</span>
+                    </label>
+                  </div>
+                </template>
+                <template v-else>
+                  <span v-if="row['is_due_date_tbd']">TBD</span>
+                  <span v-else>{{content | fullDate}}</span>
+                </template>
+              </template>
+
+              <template v-else>
+                <textarea v-if="editMode" v-model="row[prop]"></textarea>
+                <span v-else>{{content}}</span>
+              </template>
             </td>
 
             <td class="print-hidden">

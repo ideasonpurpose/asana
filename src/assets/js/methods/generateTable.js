@@ -31,11 +31,15 @@ function generateTable() {
    * 
    * Data comes in the form of multidimensional arrays
    * Let's turn entries into objects for easier data processing
+   * Also add new is_due_date_tbd & is_start_date_tbd keys 
    */
   var dProcessed = [];
   for (var i = 0; i < d.length; i++) {
     var row = d[i];
-    dProcessed.push({});
+    dProcessed.push({
+      'is_due_date_tbd': false,
+      'is_start_date_tbd': false
+    });
 
     for (var j = 0; j < row.length; j++) {
       // get the property name from the props object above
@@ -43,7 +47,6 @@ function generateTable() {
       dProcessed[i][prop] = row[j];
     }
   }
-
 
   /**
    * Auto-disable Completed and Non-Client View rows

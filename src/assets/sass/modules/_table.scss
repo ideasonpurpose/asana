@@ -93,6 +93,32 @@ table:not(.ptable) {
     padding-left: 0;
   }
 
+  .start_date,
+  .due_date {
+    > div {
+      display: flex;
+    }
+  }
+
+  .tbd {
+    display: flex;
+    text-align: left;
+    font-size: 12px;
+    align-items: center;
+    font-weight: 700;
+    gap: 6px;
+    margin: 8px 0;
+    line-height: 0;
+
+    input {
+      margin: 0;
+    }
+
+    span:not(:empty):after {
+      display: none;
+    }
+  }
+
   /**
    * Counters
    */

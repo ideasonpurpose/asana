@@ -5,7 +5,7 @@
  */
 
 var Vue = require('./lib/vue.min.js');
-var Fusse = require('./lib/fusse.js');
+//var Fusse = require('./lib/fusse.js');
 
 // Vue methods
 var loadFile = require('./methods/loadFile.js');
