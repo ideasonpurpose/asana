@@ -21,6 +21,7 @@ $dark-gray: #5e6463;
 $gray: #bbb;
 
 $blue: #2973b7;
+$red: #e94948;
 
 $colorPalette: (
   "white": $white,
@@ -37,6 +38,7 @@ $colorPalette: (
   "light-gray": $light-gray,
   "dark-gray": $dark-gray,
   "blue": $blue,
+  "red": $red,
 );
 
 @each $name, $color in $colorPalette {
